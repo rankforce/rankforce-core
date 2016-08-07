@@ -3,9 +3,9 @@ sudo: required
 services:
   - docker
 
-matrix:
-  allow_failures:
-    - rvm: default
+# To avoid unnecessary setting because force bundle install by Gemfile.
+# Language can be anything if other than the ruby
+language: php
 
 script:
   - docker run -e consumer_key=$consumer_key -e consumer_secret=$consumer_secret -e oauth_token=$oauth_token -e oauth_token_secret=$oauth_token_secret -e access_token=$access_token -e apikey=$apikey -e database=$database -e collection=$collection -e auth_token=$auth_token rankforce/ruby rspec
