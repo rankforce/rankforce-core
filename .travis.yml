@@ -3,6 +3,9 @@ sudo: required
 services:
   - docker
 
+before_script:
+  - rm -f Gemfile
+
 script:
   - docker run -e consumer_key=$consumer_key -e consumer_secret=$consumer_secret -e oauth_token=$oauth_token -e oauth_token_secret=$oauth_token_secret -e access_token=$access_token -e apikey=$apikey -e database=$database -e collection=$collection -e auth_token=$auth_token rankforce/ruby rspec
 
